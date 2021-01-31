@@ -151,10 +151,10 @@ xgb.cv <- function(params=list(), data, nrounds, nfold, label = NULL, missing = 
   }
 
   # CV folds
-  if (!is.null(folds)) {
-    if (!is.list(folds) || length(folds) < 2)
-      stop("'folds' must be a list with 2 or more elements that are vectors of indices for each CV-fold")
-    nfold <- length(folds)
+  if (!is.null(train_folds)) {
+    if (!is.list(train_folds) || length(train_folds) < 2)
+      stop("'train_folds' must be a list with 2 or more elements that are vectors of indices for each CV-fold")
+    nfold <- length(train_folds)
   } else {
     if (nfold <= 1)
       stop("'nfold' must be > 1")
