@@ -195,8 +195,8 @@ xgb.cv <- function(params=list(), data, nrounds, nfold, label = NULL, missing = 
   # create the booster-folds
   # train_folds
   dall <- xgb.get.DMatrix(data, label, missing)
-  bst_folds <- lapply(seq_along(folds), function(k) {
-    dtest  <- slice(dall, folds[[k]])
+  bst_folds <- lapply(seq_along(train_folds), function(k) {
+    dtest  <- slice(dall, folds)
     # code originally contributed by @RolandASc on stackoverflow
     if (is.null(train_folds))
        dtrain <- slice(dall, unlist(folds[-k]))
